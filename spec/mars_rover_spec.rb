@@ -19,4 +19,16 @@ describe 'mars rovers' do
 
     expect(mars_rover.move("MMM")).to eq("0:3:N")
   end
+
+  it 'knows its landing position with a command R' do
+    mars_rover = MarsRover.new
+
+    expect(mars_rover.move("R")).to eq("0:0:E")
+  end
+
+  it 'knows its landing position with a command RR' do
+    mars_rover = MarsRover.new
+
+    expect(mars_rover.move("RR")).to eq("0:0:S")
+  end
 end
