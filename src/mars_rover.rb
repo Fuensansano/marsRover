@@ -6,12 +6,25 @@ class MarsRover
 
   def move(command)
     forward = command.count("M")
-    direction = command.count("R")
-    return "0:#{forward}:E" if direction == 1
-    return "0:#{forward}:S" if direction == 2
-    return "0:#{forward}:W" if direction == 3
+
+    if command.include?("R")
+      direction = right_rotation(command.count("R"))
+      return "0:#{forward}:#{direction}"
+    end
+
     "0:#{forward}:N"
 
+  end
+
+  def right_rotation(command)
+    direction = {
+      1 => "E",
+      2 => "S",
+      3 => "W",
+      4 => "N",
+    }
+
+    direction[command]
   end
 end
 
