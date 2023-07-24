@@ -5,9 +5,8 @@ class MarsRover
   end
 
   def move(command)
-    return "0:1:N" if command == "M"
-    return "0:3:N" if command == "MMM"
-    "0:0:N"
+    forward = command.count("M")
+    "0:#{forward}:N"
   end
 end
 
