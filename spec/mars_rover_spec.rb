@@ -2,6 +2,7 @@ require_relative '../src/mars_rover'
 
 
 describe 'mars rovers' do
+
   it 'knows its landing position' do
     mars_rover = MarsRover.new
 
@@ -36,5 +37,23 @@ describe 'mars rovers' do
     mars_rover = MarsRover.new
 
     expect(mars_rover.move("RRR")).to eq("0:0:W")
+  end
+
+  it 'knows its landing position with a command L' do
+    mars_rover = MarsRover.new
+
+    expect(mars_rover.move("L")).to eq("0:0:W")
+  end
+
+  it 'knows its landing position with a command LL' do
+    mars_rover = MarsRover.new
+
+    expect(mars_rover.move("LL")).to eq("0:0:S")
+  end
+
+  it 'knows its landing position with a command LLL' do
+    mars_rover = MarsRover.new
+
+    expect(mars_rover.move("LLL")).to eq("0:0:E")
   end
 end
