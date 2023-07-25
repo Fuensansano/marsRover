@@ -29,6 +29,7 @@ class MarsRover
   end
 
   def right_rotation(command)
+    index = command % 4
     direction = {
       1 => "E",
       2 => "S",
@@ -36,7 +37,7 @@ class MarsRover
       4 => "N",
     }
 
-    direction[command]
+    direction[index]
   end
 
   def left_rotation(command)
