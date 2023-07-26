@@ -93,4 +93,9 @@ describe 'mars rovers' do
     expect(mars_rover.move("LLLLLL")).to eq("0:0:S")
   end
 
+  it 'can not pass the limit' do
+    mars_rover = MarsRover.new
+
+    expect(mars_rover.move("MMMMMMMMMMM")).to eq("0:1:N")
+  end
 end
