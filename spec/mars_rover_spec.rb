@@ -98,4 +98,10 @@ describe 'mars rovers' do
 
     expect(mars_rover.move("MMMMMMMMMMM")).to eq("0:1:N")
   end
+
+  it 'can not pass the limit with 19 M command' do
+    mars_rover = MarsRover.new
+
+    expect(mars_rover.move("MMMMMMMMMMMMMMMMMMM")).to eq("0:9:N")
+  end
 end
