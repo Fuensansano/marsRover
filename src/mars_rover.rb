@@ -5,35 +5,35 @@ class MarsRover
   end
 
   def move(command)
-    forward = command.count("M")
+    y = command.count("M")
 
     if (command.count("M") >= 10)
-      forward = command.count("M") % 10
+      y = command.count("M") % 10
     end
 
     if (command.include?("R") && command.include?("M") )
-      x = command.count("R")
       direction = right_rotation(command.count("R"))
-      return "#{x}:#{forward}:#{direction}"
+      return "0:#{y}:#{direction}"
     end
 
     if command.include?("R")
       direction = right_rotation(command.count("R"))
-      return "0:#{forward}:#{direction}"
+      return "0:#{y}:#{direction}"
     end
 
     if command.include?("L")
       direction = left_rotation(command.count("L"))
-      return "0:#{forward}:#{direction}"
+      return "0:#{y}:#{direction}"
     end
 
-    "0:#{forward}:N"
+    "0:#{y}:N"
 
   end
 
   def right_rotation(command)
     index = command % 4
     direction = {
+      0 => "N",
       1 => "E",
       2 => "S",
       3 => "W",
@@ -46,6 +46,7 @@ class MarsRover
   def left_rotation(command)
     index = command % 4
     direction = {
+      0 => "N",
       1 => "W",
       2 => "S",
       3 => "E",
